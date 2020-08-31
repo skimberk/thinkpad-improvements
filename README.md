@@ -1,6 +1,6 @@
 # Thinkpad Improvement
 
-I just bought a used Thinkpad T440P (August 2020) and installed Ubuntu. I'm going to try and record any solutions to problems/general improvements here.
+I just bought (in August 2020) a used Thinkpad T440P and installed Ubuntu. I'm going to try and record any solutions to problems/general improvements here.
 
 ## Screen tearing when scrolling
 
