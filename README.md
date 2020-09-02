@@ -12,6 +12,14 @@ One of my biggest issues with `libinput` is the lack of kinetic scrolling. It se
 
 You can configure scroll speed in `about:config` by changing the `mousewheel.default.delta_multiplier_` variables. Make sure `apz.gtk.kinetic_scroll.enabled` is `true`.
 
+## Disabling trackpoint
+
+The trackpoint was moving my cursor around while I was typing. I disabled the trackpoint completely with the command:
+
+```
+xinput set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" 0
+```
+
 ## Touchpad kinda wonky
 
 **At first (with `libinput`):** The touchpad just didn't work that well. It wouldn't right click when I physically pressed the touchpad with two fingers and scrolling was a little janky. It would also right click sometimes when I was trying to select text (and therefore was clicking with two fingers on the touchpad).
