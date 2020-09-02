@@ -6,6 +6,12 @@ I just bought (in August 2020) a used Thinkpad T440P and installed Ubuntu. I'm g
 
 When scrolling there would be little lines of lag across the screen. This was especially noticeable when I was scrolling through text in Firefox. I followed the instructions here which solved the issue: https://askubuntu.com/a/1111020
 
+## Firefox kinetic scrolling
+
+One of my biggest issues with `libinput` is the lack of kinetic scrolling. It seems it can be supported by individual applications, though, and can be enabled in firefox by using the `MOZ_USE_XINPUT2=1` env variable.
+
+You can configure scroll speed in `about:config` by changing the `mousewheel.default.delta_multiplier_` variables. Make sure `apz.gtk.kinetic_scroll.enabled` is `true`.
+
 ## Touchpad kinda wonky
 
 **At first (with `libinput`):** The touchpad just didn't work that well. It wouldn't right click when I physically pressed the touchpad with two fingers and scrolling was a little janky. It would also right click sometimes when I was trying to select text (and therefore was clicking with two fingers on the touchpad).
