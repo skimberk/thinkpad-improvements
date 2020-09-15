@@ -42,11 +42,29 @@ keycode 119 = Delete NoSymbol Delete
 ...
 ```
 
-I disabled the keys by running:
+I disabled the keys (temporarily) by running:
 
 ```
 xmodmap -e 'keycode 112 = 0x0000'
 xmodmap -e 'keycode 117 = 0x0000'
+```
+
+To make the change permanent, I followed these steps: https://unix.stackexchange.com/a/520756. So, I ran `g` then copied the following into the file:
+
+```
+#!/bin/bash
+
+case $1 in
+    pre)
+        exit 0
+    ;;
+    post)
+        export DISPLAY=:0
+        sleep 10
+        xmodmap -e 'keycode 112 = 0x0000'
+        xmodmap -e 'keycode 117 = 0x0000'
+    ;;
+esac
 ```
 
 
