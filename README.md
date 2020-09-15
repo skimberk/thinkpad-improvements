@@ -6,6 +6,8 @@ I just bought (in August 2020) a used Thinkpad T440P and installed Ubuntu. I'm g
 
 When scrolling there would be little lines of lag across the screen. This was especially noticeable when I was scrolling through text in Firefox. I followed the instructions here which solved the issue: https://askubuntu.com/a/1111020
 
+In case that link stops working, in summary, I created the file `/etc/modprobe.d/zz-nvidia-modeset.conf` and added `options nvidia_drm modeset=1`, then ran `sudo update-initramfs -u` and rebooted.
+
 ## Firefox kinetic scrolling
 
 One of my biggest issues with `libinput` is the lack of kinetic scrolling. It seems it can be supported by individual applications, though, and can be enabled in firefox by using the `MOZ_USE_XINPUT2=1` env variable.
