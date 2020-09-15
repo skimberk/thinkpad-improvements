@@ -49,7 +49,7 @@ xmodmap -e 'keycode 112 = 0x0000'
 xmodmap -e 'keycode 117 = 0x0000'
 ```
 
-To make the change permanent, I followed these steps: https://unix.stackexchange.com/a/520756. So, I ran `g` then copied the following into the file:
+To make the change permanent, I followed these steps: https://unix.stackexchange.com/a/520756. So, I ran `sudo touch /usr/lib/systemd/system-sleep/xkeyboard; sudo chmod 755 /usr/lib/systemd/system-sleep/xkeyboard` then copied the following into the file:
 
 ```
 #!/bin/bash
