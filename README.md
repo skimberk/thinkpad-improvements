@@ -20,6 +20,34 @@ The trackpoint was moving my cursor around while I was typing. I disabled the tr
 xinput set-prop "TPPS/2 IBM TrackPoint" "Device Enabled" 0
 ```
 
+## Disabling `PgUp` and `PgDn` (Page Up and Page Down) keys
+
+This is mostly my fault, but I kept accidentally hitting `PgUp` and `PgDn` when I meant to hit one of the arrow keys. To disable this, I first had to find the keycodes. I ran `xev` and clicked the keys, and it displayed the relevant keycodes. It indicated the keycodes as `112` and `117`. To double check, I ran `xmodmap -pke` and was told that those keys corresponded with `Prior` and `Next`, which checks out. This is what that output looked like:
+
+```
+...
+keycode 109 = Linefeed NoSymbol Linefeed
+keycode 110 = Home NoSymbol Home
+keycode 111 = Up NoSymbol Up
+keycode 112 = Prior NoSymbol Prior
+keycode 113 = Left NoSymbol Left
+keycode 114 = Right NoSymbol Right
+keycode 115 = End NoSymbol End
+keycode 116 = Down NoSymbol Down
+keycode 117 = Next NoSymbol Next
+keycode 118 = Insert NoSymbol Insert
+keycode 119 = Delete NoSymbol Delete
+...
+```
+
+I disabled the keys by running:
+
+```
+xmodmap -e 'keycode 112 = 0x0000'
+xmodmap -e 'keycode 117 = 0x0000'
+```
+
+
 ## Touchpad kinda wonky
 
 **At first (with `libinput`):** The touchpad just didn't work that well. It wouldn't right click when I physically pressed the touchpad with two fingers and scrolling was a little janky. It would also right click sometimes when I was trying to select text (and therefore was clicking with two fingers on the touchpad).
